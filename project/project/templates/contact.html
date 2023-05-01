@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+{% block title %}contact{% endblock title %}
+{% block body %}
+{% if user.is_authenticated %}
+<center><h2 class="mx-auto p-1 bg-dark text-secondary" style="font-family:timesnewroman" >Contact Us</h2></center>
+    <div class="p-5 mb-3">
+      {% for message in messages  %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+<form action="{% url 'contact' %}" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="name" required name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Email</label>
+    <input type="email" name="email"  class="form-control" id="exampleInputPassword1" disabled   value={{user}} >
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Mobile No.</label>
+    <input type="text" required name="mob" maxlength='10' class="form-control" id="exampleInputPassword1">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">How can I help you?</label>
+    <textarea type="text" required name="des" class="form-control" id="exampleInputPassword1"></textarea>
+  </div>
+  <a href="{% url 'contact' %}"><button type="submit" class="btn btn-primary">Submit</button></a>
+</form>
+</div>
+{% else %}
+<center>
+  <div>
+    <p>Please <a href="{% url 'handlelogin' %}">log in</a> to contact.</p>
+  </div>
+</center>
+{% endif %}
+{% endblock body %}

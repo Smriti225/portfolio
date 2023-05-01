@@ -1,0 +1,46 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}about{% endblock title %}
+{% block body %}
+<div class ="p-3">
+    <section id="about" class="about">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>About</h2>
+            <p>Hello all, My name is Smriti kimtee and I am from piplia mandi,Mandsaur(MP) I had completed my graduation from Mandsaur University Mandsaur in Computer Application. I am currently working as software engineer trainee at Lucent innovation pvt limited,Ahemdabad(gujrat). </p>
+          </div>
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+              <img src="{% static 'assets/img/profile.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+              <h3>Python Developer </h3>
+              <p class="fst-italic">
+                My specialization includes python ,python framework and  its libraries  like django,djangoRestframework,numpy,pandas  etc. My Other skills include
+                Mysql,Mongodb,React.
+                <div class="col-md-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Birthdate:</strong> <span>25 dec 2002</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>linkedin:</strong> <span>Smriti Kimtee</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Piplia Mandi,Mandsaur</span></li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Strength:</strong> <span>Easy adaptabiity</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors in Computer Application</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>smritikimtee@gmail.com</span></li>
+                  </ul>
+                </div>
+              </div>
+              <p>
+                Other than I am also active in various other activities like anchoring , games and many more.In my academics I had created various projects some are group as well.
+              </p>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+<div>
+{% endblock body %}
