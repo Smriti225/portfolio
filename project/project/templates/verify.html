@@ -1,0 +1,28 @@
+{% extends 'basic.html' %}
+{% block title %}verify{% endblock title %}
+{% block body %}
+<center><h2 class="mx-auto p-1 bg-dark text-secondary" style="font-family:timesnewroman" >Verify it's you</h2></center>
+{% for message in messages  %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<div class="mx-auto p-5 mb-5" style="width:400px">
+    <form action="{% url 'verifycode' %}?email={{email}}" method="POST" >
+        {% csrf_token %}   
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" name="email" value={{email}} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Enter four digit verification code send to your email</label>
+          <input type="number" name="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        
+        <a href="{% url 'verifycode' %}?email={{email}}">
+        <button type="submit" class="btn btn-primary mb-3">Verify</button><br>
+        </a>
+      </form>
+</div>
+{% endblock body %}
